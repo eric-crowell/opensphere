@@ -9,6 +9,7 @@ goog.require('os.IGroupable');
 goog.require('os.color');
 goog.require('os.events.LayerEvent');
 goog.require('os.events.PropertyChangeEvent');
+goog.require('os.fn');
 goog.require('os.implements');
 goog.require('os.layer');
 goog.require('os.layer.IColorableLayer');
@@ -560,7 +561,7 @@ plugin.cesium.Layer.prototype.setLayerUI = function(value) {
  * @return {!function(!ol.layer.Layer)}
  */
 plugin.cesium.Layer.prototype.getRefreshFunction = function() {
-  return goog.nullFunction;
+  return os.fn.noop;
 };
 
 
@@ -575,14 +576,14 @@ plugin.cesium.Layer.prototype.setRefreshFunction = function(refreshFunction) {
  * Forces the layer to refresh.
  * @protected
  */
-plugin.cesium.Layer.prototype.refresh = goog.nullFunction;
+plugin.cesium.Layer.prototype.refresh = os.fn.noop;
 
 
 /**
  * Identify the layer on the map.
  * @protected
  */
-plugin.cesium.Layer.prototype.identify = goog.nullFunction;
+plugin.cesium.Layer.prototype.identify = os.fn.noop;
 
 
 /**

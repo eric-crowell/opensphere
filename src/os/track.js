@@ -13,6 +13,7 @@ goog.require('os.events.PropertyChangeEvent');
 goog.require('os.feature');
 goog.require('os.feature.DynamicFeature');
 goog.require('os.feature.DynamicPropertyChange');
+goog.require('os.fn');
 goog.require('os.geom.GeometryField');
 goog.require('os.interpolate');
 goog.require('os.object');
@@ -1575,7 +1576,7 @@ os.track.splitIntoTracks = function(options) {
   var features = options.features;
   var result = options.result || [];
   var bucketFn = options.bucketFn || (options.field ? os.track.bucketByField.bind(undefined, options.field) : null);
-  var getTrackFn = options.getTrackFn || goog.nullFunction;
+  var getTrackFn = options.getTrackFn || os.fn.noop;
 
   if (features && bucketFn) {
     var buckets = goog.array.bucket(features, bucketFn);

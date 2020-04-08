@@ -5,6 +5,7 @@ goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 goog.require('goog.events.EventType');
 goog.require('os.alert.AlertManager');
+goog.require('os.fn');
 goog.require('os.im.Importer');
 goog.require('os.object');
 goog.require('os.ui.im.ImportEvent');
@@ -272,7 +273,7 @@ plugin.places.PlacesManager.prototype.onFileReady_ = function(file) {
     this.placesLayer_.setExplicitType('');
     this.placesLayer_.setLayerUI('');
     this.placesLayer_.setNodeUI('<placesnodeui></placesnodeui>');
-    this.placesLayer_.renderLegend = goog.nullFunction;
+    this.placesLayer_.renderLegend = os.fn.noop;
 
     this.placesSource_ = /** @type {plugin.file.kml.KMLSource} */ (this.placesLayer_.getSource());
     ol.events.listen(this.placesSource_, goog.events.EventType.PROPERTYCHANGE, this.onSourcePropertyChange_, this);

@@ -28,6 +28,7 @@ goog.require('os.defines');
 goog.require('os.events.PropertyChangeEvent');
 goog.require('os.events.SelectionType');
 goog.require('os.feature.DynamicPropertyChange');
+goog.require('os.fn');
 goog.require('os.geo');
 goog.require('os.geo.jsts');
 goog.require('os.hist.HistogramData');
@@ -652,7 +653,7 @@ os.source.Vector.prototype.reindexRtree_ = function() {
 /**
  * @inheritDoc
  */
-os.source.Vector.prototype.refresh = goog.nullFunction;
+os.source.Vector.prototype.refresh = os.fn.noop;
 
 
 /**

@@ -2,6 +2,7 @@ goog.provide('plugin.cesium.TileGridTilingScheme');
 
 goog.require('goog.asserts');
 goog.require('ol.proj');
+goog.require('os.fn');
 goog.require('os.geo');
 goog.require('os.map');
 goog.require('os.proj');
@@ -77,7 +78,7 @@ plugin.cesium.TileGridTilingScheme.init = function() {
   goog.inherits(plugin.cesium.TileGridTilingScheme, Cesium.TilingScheme);
 
   // after creating the class, ensure this function can still be called without consequence.
-  plugin.cesium.TileGridTilingScheme.init = goog.nullFunction;
+  plugin.cesium.TileGridTilingScheme.init = os.fn.noop;
 
 
   Object.defineProperties(plugin.cesium.TileGridTilingScheme.prototype, {

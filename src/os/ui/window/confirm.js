@@ -1,6 +1,8 @@
 goog.module('os.ui.window.ConfirmUI');
 goog.module.declareLegacyNamespace();
 
+goog.require('os.fn');
+
 const {getDocument} = goog.require('goog.dom');
 const KeyCodes = goog.require('goog.events.KeyCodes');
 const KeyHandler = goog.require('goog.events.KeyHandler');
@@ -41,9 +43,9 @@ const launchConfirm = function(opt_options, opt_scopeOptions) {
   var options = /** @type {!osx.window.ConfirmOptions} */ (opt_options || {});
   var scopeOptions = (opt_scopeOptions || {});
 
-  scopeOptions['confirmCallback'] = options.confirm || goog.nullFunction;
+  scopeOptions['confirmCallback'] = options.confirm || os.fn.noop;
   scopeOptions['confirmValue'] = options.confirmValue || undefined;
-  scopeOptions['cancelCallback'] = options.cancel || goog.nullFunction;
+  scopeOptions['cancelCallback'] = options.cancel || os.fn.noop;
   scopeOptions['yesText'] = options.yesText || 'OK';
   scopeOptions['yesIcon'] = options.yesIcon || 'fa fa-check';
   scopeOptions['yesButtonClass'] = options.yesButtonClass || 'btn-primary';

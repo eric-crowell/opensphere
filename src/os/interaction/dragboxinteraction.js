@@ -6,6 +6,7 @@ goog.require('ol.style.Stroke');
 goog.require('ol.style.Style');
 goog.require('os.I3DSupport');
 goog.require('os.MapEvent');
+goog.require('os.fn');
 goog.require('os.geo');
 goog.require('os.implements');
 goog.require('os.ui.ol.interaction.DragBox');
@@ -71,7 +72,7 @@ os.interaction.DragBox.prototype.cleanup = function() {
 /**
  * Clean up the WebGL renderer.
  */
-os.interaction.DragBox.prototype.cleanupWebGL = goog.nullFunction;
+os.interaction.DragBox.prototype.cleanupWebGL = os.fn.noop;
 
 
 /**
@@ -79,7 +80,7 @@ os.interaction.DragBox.prototype.cleanupWebGL = goog.nullFunction;
  * @param {ol.Coordinate} start The start coordinate.
  * @param {ol.Coordinate} end The end coordinate.
  */
-os.interaction.DragBox.prototype.updateWebGL = goog.nullFunction;
+os.interaction.DragBox.prototype.updateWebGL = os.fn.noop;
 
 
 /**
